@@ -1,0 +1,14 @@
+[Unit]
+Description=Pigeon Patrol Bot
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/pigeon-patrol-bot
+ExecStart=/home/pi/pigeon-patrol-bot/.venv/bin/python -m pigeon_patrol.main
+Restart=always
+RestartSec=3
+User=pi
+
+[Install]
+WantedBy=multi-user.target

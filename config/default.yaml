@@ -1,0 +1,52 @@
+camera:
+  device_index: 0
+  width: 640
+  height: 480
+  fps: 20
+
+detection:
+  mode: "motion"        # "motion" or "yolo"
+  motion:
+    min_area_px: 8000
+    threshold: 25
+    cooldown_s: 8
+  yolo:
+    model_path: "models/yolov8n.pt"
+    min_conf: 0.35
+    target_classes: ["bird"]
+
+behavior:
+  approach_time_s: 2.5
+  retreat_time_s: 1.5
+  flash_time_s: 3.0
+  buzz_time_s: 2.0
+  max_triggers_per_min: 6
+
+motors:
+  driver: "l298n"
+  left:
+    in1: 17
+    in2: 27
+    en: 22
+  right:
+    in1: 23
+    in2: 24
+    en: 25
+  pwm_frequency: 200
+  speed:
+    cruise: 0.35
+    approach: 0.55
+    retreat: 0.45
+
+lights:
+  pin: 5
+  active_high: true
+
+sound:
+  pin: 6
+  active_high: true
+
+safety:
+  enabled: true
+  obstacle_stop_cm: 35
+  max_run_s: 60
